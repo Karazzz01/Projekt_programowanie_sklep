@@ -9,6 +9,8 @@ public class Main {
         System.out.println();
         System.out.println("Logowanie...");
 
+        Logowanie.logowanie();
+
         int menu = 0;
         Scanner scanner = new Scanner(System.in);
 
