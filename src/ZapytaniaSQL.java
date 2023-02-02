@@ -10,8 +10,9 @@ public class ZapytaniaSQL {
             Statement statement = connect.createStatement();
             return statement.executeQuery(selectQuery);
         } catch (SQLException e) {
-            throw new RuntimeException(e.getMessage());
+            System.out.println("Zapytanie nie powiodło się");
         }
+        return null;
     }
 
     public static void executeQuery(String query) {
@@ -20,7 +21,7 @@ public class ZapytaniaSQL {
             Statement statement = connect.createStatement();
             statement.execute(query);
         } catch (SQLException e) {
-            throw new RuntimeException(e.getMessage());
+            System.out.println("Zapytanie nie powiodło się");
         }
     }
 }

@@ -14,7 +14,8 @@ public class Logowanie {
 
             System.out.println("Podaj login:");
             login = scaner.nextLine();
-            System.out.println("Podaj haslo:");
+
+            System.out.println("Podaj hasło:");
             haslo = scaner.nextLine();
 
             try {
@@ -26,17 +27,13 @@ public class Logowanie {
                 hasloZwrot = result.getString("haslo");
 
                 if (login.equals(loginZwrot) && haslo.equals(hasloZwrot)) {
-                    System.out.println("udało sie");
+                    System.out.println("Udało sie");
                     menu = 0;
-                } else {
-                    System.out.println("złe dane");
-
-                    menu = 1;
                 }
 
             } catch (SQLException error) {
-                System.out.println("nie mam takiej osoby");
-                
+                System.out.println("Złe dane");
+
                 menu = 1;
             }
         } while (menu == 1);
