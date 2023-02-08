@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.ServiceConfigurationError;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,22 +7,22 @@ public class Main {
         Logowanie.logowanie();
 
         do {
-            System.out.println("witaj w panelu");
+            System.out.println("Witaj w panelu!");
             System.out.println();
-            System.out.println("1 Panel serwisu");
-            System.out.println("2 Administracja sklepem");
-            System.out.println("3 Wyjscie");
+            System.out.println("1. Panel serwisu");
+            System.out.println("2. Administracja sklepem");
+            System.out.println("3. Wyjscie");
             System.out.println();
             System.out.println("Podaj opcje z menu(1-3):");
             sterowanie = scaner.nextInt();
 
-            if (sterowanie == 1){
+            if (sterowanie == 1) {
                 do {
-                    System.out.println("1 Przyjęcie zamówiena naprawy");
-                    System.out.println("2 Naprawa sprzetu");
-                    System.out.println("3 Rejest napraw");
-                    System.out.println("4 Raport");
-                    System.out.println("5 Wstecz");
+                    System.out.println("1. Przyjęcie zamówiena naprawy");
+                    System.out.println("2. Naprawa sprzętu");
+                    System.out.println("3. Rejest napraw");
+                    System.out.println("4. Raport dochodów");
+                    System.out.println("5. Wstecz");
                     System.out.println();
                     System.out.println("Podaj opcje z menu(1-5):");
                     sterowanie = scaner.nextInt();
@@ -36,16 +35,15 @@ public class Main {
                             SerwisZapytania.naprawa();
                             break;
                         case 3:
-                            do{
-                                System.out.println("1 Po naprawie");
-                                System.out.println("2 Do naprawy");
-                                System.out.println("3 Wszystkie");
-                                System.out.println("4 Wstecz");
+                            do {
+                                System.out.println("1. Po naprawie");
+                                System.out.println("2. Do naprawy");
+                                System.out.println("3. Wszystkie");
+                                System.out.println("4. Wstecz");
                                 System.out.println();
                                 System.out.println("Podaj opcje z menu(1-4):");
                                 sterowanie = scaner.nextInt();
-                                switch (sterowanie)
-                                {
+                                switch (sterowanie) {
                                     case 1:
                                         SerwisZapytania.wyswietSerwis("zrobione");
                                         break;
@@ -61,7 +59,7 @@ public class Main {
                                     default:
                                         System.out.println("Niepoprawna liczba");
                                 }
-                            }while(sterowanie != 4);
+                            } while (sterowanie != 4);
                             break;
                         case 4:
                             SerwisZapytania.raport(1);
@@ -74,33 +72,32 @@ public class Main {
                         default:
                             System.out.println("Niepoprawna liczba");
                     }
-                }while (sterowanie != 5);
-            }else if(sterowanie == 2){
+                } while (sterowanie != 5);
+            } else if (sterowanie == 2) {
                 do {
                     SklepProduktyZapytania SklepZapytania = new SklepProduktyZapytania();
 
-                    System.out.println("1 Sprawdzenie stanu magazynowego");//sklep magazyn
-                    System.out.println("2 Zarzadzanie produktami w sklepie");//sklep produkty
-                    System.out.println("3 Dodanie/usunięcie/edycja kategori");
-                    System.out.println("4 Dodanie/usunięcie/edycja producenta");
-                    System.out.println("5 Dodanie produktu do sklepu");
-                    System.out.println("6 Wstecz");
+                    System.out.println("1. Sprawdzenie stanu magazynowego");//sklep magazyn
+                    System.out.println("2. Zarządzanie produktami w sklepie");//sklep produkty
+                    System.out.println("3. Dodanie/usunięcie/edycja kategorii");
+                    System.out.println("4. Dodanie/usunięcie/edycja producenta");
+                    System.out.println("5. Dodanie produktu do sklepu");
+                    System.out.println("6. Wstecz");
                     System.out.println();
                     System.out.println("Podaj opcje z menu(1-6):");
                     sterowanie = scaner.nextInt();
                     switch (sterowanie) {
                         case 1:
                             do {
-                                //alert poniżej jakiegoś stanu
-                                System.out.println("1 Wyświetl ilość poszczegulnych produktów");
-                                System.out.println("2 Wyśiwtl ilość produktów w danej kategori");
-                                System.out.println("3 Automatyczne sprawdzenie magazynu");
-                                System.out.println("4 Dostawa produktu");
-                                System.out.println("5 Wstecz");
+                                System.out.println("1. Wyświetl ilość poszczególnych produktów");
+                                System.out.println("2. Wyświetl ilość produktów w danej kategorii");
+                                System.out.println("3. Automatyczne sprawdzenie magazynu");
+                                System.out.println("4. Dostawa produktu");
+                                System.out.println("5. Wstecz");
                                 System.out.println();
                                 System.out.println("Podaj opcje z menu(1-5):");
                                 sterowanie = scaner.nextInt();
-                                switch (sterowanie){
+                                switch (sterowanie) {
                                     case 1:
                                         SklepMagazynZapytania.wyswietlIlosc();
                                         break;
@@ -119,23 +116,23 @@ public class Main {
                                     default:
                                         System.out.println("Niepoprawna liczba");
                                 }
-                            }while (sterowanie != 5);
+                            } while (sterowanie != 5);
                             break;
                         case 2:
-                            do{
+                            do {
                                 sterowanie = SklepZapytania.wybierzProdukt();
-                                if(sterowanie != 7){
-                                    System.out.println("1 Zamina opisu");
-                                    System.out.println("2 zmiana ceny");
-                                    System.out.println("3 zmiana nazwy");
-                                    System.out.println("4 zmiana producenta");
-                                    System.out.println("5 zmiana kategorie");
-                                    System.out.println("6 usunięcie produktu");
-                                    System.out.println("7 Wstecz");
+                                if (sterowanie != 7) {
+                                    System.out.println("1. Zmiana opisu");
+                                    System.out.println("2. Zmiana ceny");
+                                    System.out.println("3. Zmiana nazwy");
+                                    System.out.println("4. Zmiana producenta");
+                                    System.out.println("5. Zmiana kategorii");
+                                    System.out.println("6. Usunięcie produktu");
+                                    System.out.println("7. Wstecz");
                                     System.out.println();
-                                    System.out.println("Podaj opcje z menu(1-6):");
+                                    System.out.println("Podaj opcje z menu(1-7):");
                                     sterowanie = scaner.nextInt();
-                                    switch (sterowanie){
+                                    switch (sterowanie) {
                                         case 1:
                                             SklepZapytania.zmianaOpis();
                                             break;
@@ -164,18 +161,18 @@ public class Main {
                                             System.out.println("Niepoprawna liczba");
                                     }
                                 }
-                            }while(sterowanie != 7);
+                            } while (sterowanie != 7);
                             break;
                         case 3:
                             do {
-                                System.out.println("1 dodaj nową kategorię");
-                                System.out.println("2 usuń kategorię");
-                                System.out.println("3 edytuj kategorię");
-                                System.out.println("4 wstecz");
+                                System.out.println("1. Dodaj nową kategorię");
+                                System.out.println("2. Usuń kategorię");
+                                System.out.println("3. Edytuj kategorię");
+                                System.out.println("4. Wstecz");
                                 System.out.println();
                                 System.out.println("Podaj opcje z menu(1-4):");
                                 sterowanie = scaner.nextInt();
-                                switch (sterowanie){
+                                switch (sterowanie) {
                                     case 1:
                                         SklepKategorieProdukty.dodajKategorie();
                                         break;
@@ -193,18 +190,18 @@ public class Main {
                                     default:
                                         System.out.println("Niepoprawna liczba:");
                                 }
-                            }while(sterowanie != 4);
+                            } while (sterowanie != 4);
                             break;
                         case 4:
                             do {
-                                System.out.println("1 dodaj nowego producenta");
-                                System.out.println("2 usuń producenta");
-                                System.out.println("3 edytuj producenta");
-                                System.out.println("4 wstecz");
+                                System.out.println("1. Dodaj nowego producenta");
+                                System.out.println("2. Usuń producenta");
+                                System.out.println("3. Edytuj producenta");
+                                System.out.println("4. Wstecz");
                                 System.out.println();
                                 System.out.println("Podaj opcje z menu(1-3):");
                                 sterowanie = scaner.nextInt();
-                                switch (sterowanie){
+                                switch (sterowanie) {
                                     case 1:
                                         SklepKategorieProdukty.dodajProducenta();
                                         break;
@@ -222,7 +219,7 @@ public class Main {
                                     default:
                                         System.out.println("Niepoprawna liczba:");
                                 }
-                            }while(sterowanie != 4);
+                            } while (sterowanie != 4);
                             break;
                         case 5:
                             SklepZapytania.dodajProdukt();
@@ -233,13 +230,12 @@ public class Main {
                         default:
                             System.out.println("Niepoprawna liczba");
                     }
-                }while(sterowanie != 6);
-            }
-            else if(sterowanie == 3){
+                } while (sterowanie != 6);
+            } else if (sterowanie == 3) {
                 System.out.println("Do widzenia");
-            }else {
+            } else {
                 System.out.println("niepoprawne dane");
             }
-        }while (sterowanie != 3);
+        } while (sterowanie != 3);
     }
 }

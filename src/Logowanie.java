@@ -27,12 +27,12 @@ public class Logowanie {
                 hasloZwrot = result.getString("haslo");
 
                 if (login.equals(loginZwrot) && haslo.equals(hasloZwrot)) {
-                    System.out.println("Udało sie");
+                    System.out.println("Udało się zalogować!");
                     menu = 0;
                 }
 
             } catch (SQLException error) {
-                System.out.println("Złe dane");
+                System.out.println("Złe dane!");
 
                 menu = 1;
             }
